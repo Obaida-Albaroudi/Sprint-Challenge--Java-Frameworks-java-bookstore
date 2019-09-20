@@ -30,7 +30,9 @@ public class Book
 
     }
 
-    public Book(String booktitle, String ISBN, int copy) {
+    public Book(long bookid, String booktitle, String ISBN, int copy) {
+
+        this.bookid = bookid;
         this.booktitle = booktitle;
         this.ISBN = ISBN;
         this.copy = copy;

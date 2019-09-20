@@ -33,9 +33,15 @@ public class StartHereApplication
 
     public static void main(String[] args)
     {
-        checkEnvironmentVariable("OAUTHCLIENTID");
-        checkEnvironmentVariable("OAUTHCLIENTSECRET");
+        ApplicationContext ctx = SpringApplication.run(StartHereApplication.class, args);
 
+        logger.info("In the main class");
+        DispatcherServlet dispatcherServlet = (DispatcherServlet) ctx.getBean("dispatcherServlet");
+        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
+
+//        checkEnvironmentVariable("OAUTHCLIENTID");
+//        checkEnvironmentVariable("OAUTHCLIENTSECRET");
+//
 //        if (!stop)
 //        {
 //            ApplicationContext ctx = SpringApplication.run(StartHereApplication.class, args);

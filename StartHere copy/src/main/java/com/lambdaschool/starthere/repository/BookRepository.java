@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface BookRepository extends CrudRepository<Book, Long>
 {
-    List<Book> findByBookTitleContainingIgnoreCase(String name);
+    List<Book> findBybooktitleContainingIgnoreCase(String name);
 }

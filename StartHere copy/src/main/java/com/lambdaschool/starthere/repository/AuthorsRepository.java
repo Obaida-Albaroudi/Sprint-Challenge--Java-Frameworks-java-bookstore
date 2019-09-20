@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 public interface AuthorsRepository extends CrudRepository<Authors, Long>
 {
-    ArrayList<Authors> findAuthorsByAuthornameEquals(String name);
 
     @Modifying
     @Query(value = "DELETE FROM bookauthors WHERE authorid = :authorid", nativeQuery = true)

@@ -1,9 +1,8 @@
 package com.lambdaschool.starthere;
 
-import com.lambdaschool.starthere.models.Role;
-import com.lambdaschool.starthere.models.User;
-import com.lambdaschool.starthere.models.UserRoles;
-import com.lambdaschool.starthere.models.Useremail;
+import com.lambdaschool.starthere.models.*;
+import com.lambdaschool.starthere.services.AuthorsService;
+import com.lambdaschool.starthere.services.BookService;
 import com.lambdaschool.starthere.services.RoleService;
 import com.lambdaschool.starthere.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,12 @@ public class SeedData implements CommandLineRunner
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    AuthorsService authorsService;
+
+    @Autowired
+    BookService bookService;
 
 
     @Override
@@ -85,5 +90,43 @@ public class SeedData implements CommandLineRunner
         System.out.println(u4);
         System.out.println(u5);
         System.out.println("*** Seed Data ***\n");
+
+
+        Authors John = new Authors(1, "John", "Mitchell");
+
+        Book Flatterland = new Book(1, "Flatterland", "9780738206752", 2001);
+        Book DigitalFortess = new Book(2, "Digital Fortess", "9788489367012", 2007);
+        Book DaVinci = new Book(3, "The Da Vinci Code", "9780307474278", 2009);
+        Book Essentials = new Book(4, "Essentials of Finance", "1314241651234", 0);
+        Book Calling = new Book(5, "Calling Texas Home", "1885171382134", 2000);
+
+        bookService.save(Flatterland);
+        bookService.save(DigitalFortess);
+        bookService.save(DaVinci);
+        bookService.save(Essentials);
+        bookService.save(Calling);
+
+        System.out.println(Flatterland);
+        System.out.println(DigitalFortess);
+        System.out.println(DaVinci);
+        System.out.println(Essentials);
+        System.out.println(Calling);
+
+
+
+//        INSERT INTO author (authorid, fname, lname) VALUES (2, 'Dan', 'Brown');
+//        INSERT INTO author (authorid, fname, lname) VALUES (3, 'Jerry', 'Poe');
+//        INSERT INTO author (authorid, fname, lname) VALUES (4, 'Wells', 'Teague');
+//        INSERT INTO author (authorid, fname, lname) VALUES (5, 'George', 'Gallinger');
+//        INSERT INTO author (authorid, fname, lname) VALUES (6, 'Ian', 'Stewart');
+
+
+//        INSERT INTO wrote (bookid, authorid) VALUES (1, 6);
+//        INSERT INTO wrote (bookid, authorid) VALUES (2, 2);
+//        INSERT INTO wrote (bookid, authorid) VALUES (3, 2);
+//        INSERT INTO wrote (bookid, authorid) VALUES (4, 5);
+//        INSERT INTO wrote (bookid, authorid) VALUES (4, 3);
+//        INSERT INTO wrote (bookid, authorid) VALUES (5, 4);
+//        alter sequence hibernate_sequence restart with 25;
     }
 }

@@ -26,7 +26,8 @@ public class Authors
 
     }
 
-    public Authors(String lastname, String firstname) {
+    public Authors(long authorid, String lastname, String firstname) {
+        this.authorid = authorid;
         this.lastname = lastname;
         this.firstname = firstname;
     }
